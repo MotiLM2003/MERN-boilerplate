@@ -1,0 +1,103 @@
+/* Reset */
+
+:root {
+  // COLORS
+  --primary-color: #71b9ad;
+  --secondary-color: var(--default-font-color);
+  // Shadows
+  --shadow-color: #00000033;
+  // Fonts
+  --default-font-color: #707070;
+}
+
+*,
+*::after,
+*:before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*:link,
+*:visited,
+a {
+  color: $white;
+  text-decoration: none;
+}
+
+html {
+  direction: rtl;
+  font-size: 61.5%;
+  @include respond(tab-land) {
+    font-size: 61.5%;
+  }
+  @include respond(tab-port) {
+    font-size: 52%;
+  }
+
+  @include respond(big-desktop) {
+    font-size: 65%;
+  }
+
+  @include respond(phone) {
+    font-size: 42.8%;
+  }
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+  font-size: $default-font-size;
+  color: $variant-1;
+  box-sizing: border-box;
+  min-height: 100vh;
+  @include respond(tab-port) {
+    max-width: 100%;
+  }
+  margin: 0 auto;
+}
+
+.wrapper {
+  width: 1546px;
+  max-width: calc(100vw - 120px);
+  margin: 0 auto;
+  padding: 1rem 0;
+  position: relative;
+  @include respond(tab-land) {
+    max-width: calc(100% - 80px);
+  }
+  @include respond(phone) {
+    max-width: calc(100% - 10px);
+  }
+}
+
+//  CodeDB Custom classes
+
+.title-1 {
+  color: $secondary;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.title-2 {
+  font-size: 14px;
+}
+
+.title-3 {
+  font-size: 17px;
+  font-weight: 700;
+  color: $variant-6;
+}
+
+h2 {
+  color: $black;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 0.9em;
+  font-weight: 700;
+  font-family: 'Montserrat', sans-serif;
+  margin-bottom: 0 !important;
+}

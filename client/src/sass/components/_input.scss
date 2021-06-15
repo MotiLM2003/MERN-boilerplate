@@ -1,0 +1,27 @@
+input[type='text'],
+input[type='password'],
+input[type='Number'],
+select,
+textarea {
+  padding: 0.5rem;
+  width: 100%;
+  outline: none;
+  border-radius: 0.5rem;
+  border: 1px solid #ccc;
+  // color:$gray-light;
+  transition: all 0.3s;
+}
+
+
+
+@media only screen and (max-width: 1400px) {
+  input[type='text'],
+  input[type='password'],
+  input[type='Number'],
+  select,
+  textarea {
+    padding: 0.2rem 0.2rem 0.2rem 0.5rem;
+   
+  }
+  
+}
