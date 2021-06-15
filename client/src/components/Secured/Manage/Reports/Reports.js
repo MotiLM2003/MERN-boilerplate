@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Reports = () => {
-  return <div>דף לא פעיל</div>;
+  return <div>TODO: reports components. </div>;
 };
 
 export default Reports;

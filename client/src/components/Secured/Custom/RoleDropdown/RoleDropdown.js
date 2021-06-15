@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
-const roles = ['מזכירה', 'מוכר', 'מנהל'];
+
+const roles = ['Seller', 'Admin', 'Retention'];
 
 const SellerDropdown = ({ user, onChange }) => {
   const selectRef = useRef();
@@ -9,7 +10,7 @@ const SellerDropdown = ({ user, onChange }) => {
       ref={selectRef}
       onChange={() => onChange(selectRef.current.value)}
     >
-      <option value='0'>-- בחר תפקיד ---</option>
+      <option value='0'>-- Select Role ---</option>
       {roles.map((role) => {
         const isActive =
           role.toLocaleLowerCase() === user.role.type.toLocaleLowerCase();

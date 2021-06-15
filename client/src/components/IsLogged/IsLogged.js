@@ -3,7 +3,7 @@ import api from '../../apis/CustomerApi';
 import adminApi from '../../apis/api';
 import { useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { login } from '../../actions/customersActions';
+
 import { login as adminLogin } from '../../actions/userActions';
 const IsLogged = (props) => {
   const history = useHistory();
@@ -29,17 +29,11 @@ const IsLogged = (props) => {
     let user = null;
     const getUser = async () => {
       try {
-        if (!isAdmin) {
-          const { data } = await api.post('/refresh/', { isAdmin });
-          setData(data);
-          user = data;
-        } else {
-          const { data } = await adminApi.post('/refresh/admin', {
-            isAdmin: true,
-          });
-          setData(data);
-          user = data;
-        }
+        const { data } = await adminApi.post('/refresh/admin', {
+          isAdmin: true,
+        });
+        setData(data);
+        user = data;
       } catch (error) {
         history.push(mainPath);
       }
@@ -64,4 +58,4 @@ const stateToProps = (state) => {
     customer: state.customerReducer,
   };
 };
-export default connect(stateToProps, { login, adminLogin })(IsLogged);
+export default connect(stateToProps, { adminLogin })(IsLogged);

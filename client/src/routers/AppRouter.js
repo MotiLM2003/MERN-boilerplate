@@ -8,16 +8,14 @@ import PublicRoute from './PublicRoute';
 
 import Header from '../components/Secured/Header/Header';
 import Dashboard from '../components/Secured/Dashboard/Dashboard';
-import Customers from '../components/Secured/Customers/Customers';
-import HomePage from '../components/Secured/CustomerPage/HomePage';
+
 import Manage from '../components/Secured/Manage/Manage';
-import CustomersDetails from '../components/Secured/CustomersDetails/CustomersDetails';
 import Planning from '../components/Secured/Planning/Planning';
 import OptionsMenu from '../components/Secured/Menu/OptionsMenu';
-import CustomerHeader from '../components/Secured/CustomerPage/Header';
+
 import BackToTop from '../components/BackToTop/BackToTop';
 import IsLogged from '../components/IsLogged/IsLogged';
-// import Reports from '../components/secured/Manage/Reports/Reports';
+import Reports from '../components/Secured/Manage/Reports/Reports';
 
 const AppRouter = ({ isAuthenticated, isCustomerAuth }) => {
   const location = useLocation();
@@ -39,21 +37,14 @@ const AppRouter = ({ isAuthenticated, isCustomerAuth }) => {
                 component={Dashboard}
               />
               <PrivateRoute exact path='/planning' component={Planning} />
-              <PrivateRoute
-                exact
-                path='/backoffice/customers'
-                component={Customers}
-              />
+
               <PrivateRoute
                 exact
                 path='/backoffice/manage/'
                 component={Manage}
               />
-              <PrivateRoute
-                path='/backoffice/customers/details/:id'
-                component={CustomersDetails}
-              />
-              <PrivateRoute path='/backoffice/reports' component={Manage} />
+
+              <PrivateRoute path='/backoffice/reports' component={Reports} />
             </Switch>
           </div>
         </div>
@@ -77,26 +68,7 @@ const AppRouter = ({ isAuthenticated, isCustomerAuth }) => {
     );
   };
 
-  const customerPrivateRender = () => {
-    console.log('customer router');
-    return (
-      <div className='customer-area'>
-        <CustomerHeader />
-        <Switch location={location} key={location.key}>
-          <Route exact path='/'>
-            <Redirect to='/home' />
-          </Route>
-          <PublicRoute path='/home/' component={HomePage} />
-        </Switch>
-      </div>
-    );
-  };
-
-  if (isCustomerAuth) {
-    return customerPrivateRender();
-  } else {
-    return isAuthenticated ? authRender() : publicRender();
-  }
+  return isAuthenticated ? authRender() : publicRender();
 };
 
 const mapStateToProps = (state) => {

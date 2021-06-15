@@ -23,7 +23,6 @@ const OptionsMenu = (props) => {
       }
       case 3: {
         history.push('/backoffice/manage/');
-        // history.push('/backoffice/manage/');
         break;
       }
       default: {

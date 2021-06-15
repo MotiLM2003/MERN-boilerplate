@@ -133,7 +133,6 @@ const Login = (props) => {
             כניסה
           </motion.button>
           {userDetails.hasError && <Error error='שם או סיסמה לא נכונים' />}
-          <div className='divider mt-1'></div>
         </div>
       </div>
     </motion.div>
